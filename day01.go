@@ -10,7 +10,7 @@ type dial struct {
 }
 
 func (d *dial) left(v int64) {
-	d.pos = ( (d.pos - v) % 100 + 100) % 100
+	d.pos = ((d.pos-v)%100 + 100) % 100
 }
 
 func (d *dial) right(v int64) {
@@ -36,16 +36,16 @@ func day1(inputFile string) {
 		}
 
 		switch op {
-			case 'L':
-				cntZeroesPart2 += wraps(d.pos, -v)
-				d.left(v)
-				fmt.Printf("%s: Left %d -> %d (p2: %d)\n", line, v, d.pos, cntZeroesPart2)
-			case 'R':
-				cntZeroesPart2 += wraps(d.pos, v)
-				d.right(v)
-				fmt.Printf("%s: Right %d -> %d (p2: %d)\n", line, v, d.pos, cntZeroesPart2)
-			default:
-				panic("invalid op")
+		case 'L':
+			cntZeroesPart2 += wraps(d.pos, -v)
+			d.left(v)
+			fmt.Printf("%s: Left %d -> %d (p2: %d)\n", line, v, d.pos, cntZeroesPart2)
+		case 'R':
+			cntZeroesPart2 += wraps(d.pos, v)
+			d.right(v)
+			fmt.Printf("%s: Right %d -> %d (p2: %d)\n", line, v, d.pos, cntZeroesPart2)
+		default:
+			panic("invalid op")
 		}
 
 		if d.pos == 0 {
@@ -56,7 +56,6 @@ func day1(inputFile string) {
 	fmt.Println("total zeroes: ", cntZeroes)
 	fmt.Println("total zeroes part2: ", cntZeroesPart2)
 }
-
 
 func wraps(a, b int64) int64 {
 	x := a + b
