@@ -1,8 +1,8 @@
 package aoc
 
 import (
-	"os"
 	"bufio"
+	"os"
 )
 
 func fileReadLines(path string) ([]string, error) {
@@ -23,4 +23,10 @@ func fileReadLines(path string) ([]string, error) {
 	}
 
 	return lines, nil
+}
+
+func pie(err error) {
+	if err != nil {
+		panic(err)
+	}
 }
