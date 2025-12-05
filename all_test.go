@@ -19,3 +19,7 @@ func TestDay3(t *testing.T) {
 func TestDay4(t *testing.T) {
 	day4("input/day4.txt")
 }
+
+func TestDay5(t *testing.T) {
+	day5("input/day5.txt")
+}
